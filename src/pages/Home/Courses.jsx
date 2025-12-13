@@ -1,10 +1,16 @@
 import React from 'react';
+
 import { Button } from '@/components/ui/button';
 import { Clock, Users, Star, ArrowRight, Shield, Cloud, Code, Database, Cpu, Download, Globe } from 'lucide-react';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 
 const Courses = () => {
+
+  const location = useLocation();
+  const isInternship = location.pathname.toLowerCase().includes("internship");
+
+
 
   // WHY: Static course list helps easily maintain / update offerings,
   //      and supports mapping to render dynamic course cards.
@@ -109,13 +115,29 @@ const Courses = () => {
         {/* WHY: Section header sets user expectation and communicates course value */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Master Job-Ready IT Skills with
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Our Industry-Driven Courses</span>
+            {isInternship ? (
+              <>
+                Kickstart Your Career with
+                <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                  {" "}Industry-Focused Internships
+                </span>
+              </>
+            ) : (
+              <>
+                Master Job-Ready IT Skills with
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  {" "}Our Industry-Driven Courses
+                </span>
+              </>
+            )}
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Join the Best internship company in Patna for interactive 3D technology training. Gain hands-on experience in virtual labs, complete projects, and build practical skills for your career.
 
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            {isInternship
+              ? "Join Fillip Internship Programs to gain real-world experience, work on live projects, and become job-ready with expert mentorship."
+              : "Explore our professional IT courses designed to help you master in-demand skills and accelerate your tech career."}
           </p>
+
         </div>
 
         {/* WHY: Cards grid makes it easy to browse many courses at a glance */}
@@ -185,12 +207,11 @@ const Courses = () => {
 
                 {/* WHY: CTA directs user to the course detail page for more info */}
                 <Link to={course.path}>
-                  <Button
-                    className="w-full bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-900 hover:to-black group"
-                  >
-                    Enroll Now
+                  <Button className="w-full bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-900 hover:to-black group">
+                    {isInternship ? "Apply for Internship" : "Enroll Now"}
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
+
                 </Link>
               </div>
 

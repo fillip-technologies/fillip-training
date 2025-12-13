@@ -46,6 +46,7 @@ import { Target, Brain, Award, UserCheck } from "lucide-react";
 import SocialRadialMenu from "@/components/SocialRadialMenu";
 
 import FillipTrainingPage from "../pages/FillipTraining/FillipTrainingPage";
+import FillipInternshipPage from "../pages/FillipInternship/FillipInternshipPage";
 
 
 
@@ -220,6 +221,13 @@ function App() {
         <Route path="/checkout" element={<CheckoutPage />} />
         {/* landing page */}
         <Route path="/fillip-training" element={<FillipTrainingPage />} />
+        {/*  INTERNSHIP – MULTIPLE SEO ROUTES */}
+        <Route path="/fillipinternship" element={<FillipInternshipPage />} />
+        <Route path="/fillip-internship" element={<FillipInternshipPage />} />
+        <Route path="/internship" element={<FillipInternshipPage />} />
+        <Route path="/internship-in-patna" element={<FillipInternshipPage />} />
+        <Route path="/internship-in-web-development" element={<FillipInternshipPage />} />
+        <Route path="/web-development-internship" element={<FillipInternshipPage />} />
 
 
 
