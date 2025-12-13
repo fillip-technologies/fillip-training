@@ -4,7 +4,7 @@
 // ---------------------------------------------------
 
 const BackendContent = {
-    title: "Backend Developme",
+    title: "Backend Development",
     tag: "#1 Backend Development Bootcamp",
     duration: "16 weeks",
     learners: "3.4K learners",
