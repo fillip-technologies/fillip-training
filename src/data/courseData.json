@@ -1,0 +1,222 @@
+{
+    "uiux": {
+        "title": "UI/UX Designing Course",
+        "test": "testing div",
+        "tag": "#1 UI/UX Course",
+        "duration": "12 weeks",
+        "learners": "2.5K learners",
+        "rating": "4.9 rating",
+        "price": "₹24,999",
+        "emi": "₹2,499",
+        "heroImg": "/ui.jpg",
+        "highlights": [
+            {
+                "title": "100% Project Based",
+                "desc": "Real product builds and case studies"
+            },
+            {
+                "title": "Mentorship by Industry Experts",
+                "desc": "Weekly mentor reviews & career support"
+            },
+            {
+                "title": "Job-ready Portfolio",
+                "desc": "3–5 portfolio-ready case studies"
+            },
+            {
+                "title": "Lifetime Access",
+                "desc": "Recordings + resources forever"
+            }
+        ],
+        "learnPoints": [
+            "User research & personas",
+            "Wireframing & prototyping",
+            "Visual design & systems",
+            "Portfolio case studies"
+        ],
+        "curriculum": [
+            {
+                "title": "Module 1 — UI/UX Foundations",
+                "topics": [
+                    "Intro to UI/UX",
+                    "User Research",
+                    "Personas",
+                    "Journey Mapping"
+                ]
+            },
+            {
+                "title": "Module 2 — Wireframing & User Flow",
+                "topics": [
+                    "Low & High Fidelity Wireframes",
+                    "Grids & Layouts",
+                    "Information Architecture",
+                    "User Flow Mapping"
+                ]
+            },
+            {
+                "title": "Module 3 — Visual Design",
+                "topics": [
+                    "Color Theory",
+                    "Typography",
+                    "Design Systems",
+                    "Components"
+                ]
+            },
+            {
+                "title": "Module 4 — Prototyping",
+                "topics": [
+                    "Interactive Prototypes",
+                    "Micro-interactions",
+                    "User Testing"
+                ]
+            },
+            {
+                "title": "Module 5 — Projects & Portfolio",
+                "topics": [
+                    "E-commerce App",
+                    "Dashboard UI",
+                    "Food Delivery App",
+                    "Case Studies"
+                ]
+            }
+        ],
+        "projects": [
+            {
+                "title": "E-Commerce App",
+                "desc": "Design a complete e-commerce checkout & product listing"
+            },
+            {
+                "title": "Analytics Dashboard",
+                "desc": "Design dashboards with data visualizations"
+            },
+            {
+                "title": "Food Delivery App",
+                "desc": "Mobile-first UX with micro-interactions & animations"
+            }
+        ],
+        "faqs": [
+            {
+                "q": "Do I need coding?",
+                "a": "No. UI/UX focuses on design — Figma + prototyping skills are enough."
+            },
+            {
+                "q": "How many projects?",
+                "a": "3–5 major projects and 10+ mini assignments."
+            },
+            {
+                "q": "Is career support included?",
+                "a": "Yes, resume reviews, portfolio feedback, and interview prep included."
+            }
+        ]
+    },
+    "fullstack": {
+        "title": "Full Stack Development ",
+        "tag": "#1 UI/UX Course",
+        "duration": "24 weeks",
+        "learners": "4.8K learners",
+        "rating": "4.8 rating",
+        "price": "₹34,999",
+        "emi": "₹3,499",
+        "heroImg": "/ui.jpg",
+        "highlights": [
+            {
+                "title": "Frontend + Backend",
+                "desc": "Master React, Node, Express, MongoDB"
+            },
+            {
+                "title": "Live Projects",
+                "desc": "Deploy full apps on cloud"
+            },
+            {
+                "title": "Placement Support",
+                "desc": "Mock interviews + resume building"
+            },
+            {
+                "title": "Lifetime Access",
+                "desc": "Course + recordings + updates"
+            }
+        ],
+        "learnPoints": [
+            "HTML, CSS, JavaScript",
+            "React + Tailwind + Redux",
+            "Node.js, Express",
+            "MongoDB & Mongoose",
+            "Authentication + JWT",
+            "Deployment on Render / Vercel"
+        ],
+        "curriculum": [
+            {
+                "title": "Module 1 — Frontend Basics",
+                "topics": [
+                    "HTML5",
+                    "CSS3",
+                    "JS Fundamentals",
+                    "Responsive Design"
+                ]
+            },
+            {
+                "title": "Module 2 — React Development",
+                "topics": [
+                    "Components",
+                    "State",
+                    "Hooks",
+                    "Routing",
+                    "Redux Toolkit"
+                ]
+            },
+            {
+                "title": "Module 3 — Backend API",
+                "topics": [
+                    "Node.js",
+                    "Express",
+                    "REST APIs",
+                    "Middleware"
+                ]
+            },
+            {
+                "title": "Module 4 — Database",
+                "topics": [
+                    "MongoDB",
+                    "Schema Design",
+                    "Mongoose CRUD"
+                ]
+            },
+            {
+                "title": "Module 5 — Deployment",
+                "topics": [
+                    "Render",
+                    "Vercel",
+                    "ENV variables",
+                    "CI/CD basics"
+                ]
+            }
+        ],
+        "projects": [
+            {
+                "title": "Netflix Clone",
+                "desc": "React + Firebase"
+            },
+            {
+                "title": "E-Commerce API",
+                "desc": "Node.js + MongoDB"
+            },
+            {
+                "title": "Portfolio Website",
+                "desc": "React + Tailwind"
+            }
+        ],
+        "faqs": [
+            {
+                "q": "Do I need coding knowledge?",
+                "a": "No, this is beginner-friendly."
+            },
+            {
+                "q": "How many projects?",
+                "a": "3–4 major apps + many mini tasks."
+            },
+            {
+                "q": "Backend covered?",
+                "a": "Yes: Node, Express, MongoDB."
+            }
+        ]
+    }
+}
