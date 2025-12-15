@@ -219,8 +219,13 @@ function App() {
         <Route path="/course/:courseSlug" element={<CoursePage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
-        {/* landing page */}
+
+        {/* Training – MULTIPLE SEO ROUTES */}
         <Route path="/fillip-training" element={<FillipTrainingPage />} />
+        <Route path="/filliptraining" element={<FillipTrainingPage />} />
+        <Route path="/it-training-in-patna" element={<FillipTrainingPage />} />
+        <Route path="/training-in-patna" element={<FillipTrainingPage />} />
+
         {/*  INTERNSHIP – MULTIPLE SEO ROUTES */}
         <Route path="/fillipinternship" element={<FillipInternshipPage />} />
         <Route path="/fillip-internship" element={<FillipInternshipPage />} />

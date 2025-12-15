@@ -3,15 +3,49 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Eye, EyeOff, Mail, Lock, ArrowRight } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, ArrowRight, CloudHail } from "lucide-react";
+import axios from "axios";
 
 export default function SignInForm() {
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
 
-    const submit = (e) => {
+
+
+    // API
+    const [loginData, setLoginData] = useState({
+        email: "",
+        password: ""
+    });
+
+    const handleChange = (e) => {
+        setLoginData({
+            ...loginData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const submit = async (e) => {
         e.preventDefault();
-        navigate("/dashboard"); // 
+
+        console.log("login data:", loginData);
+
+        try {
+            const res = await axios.post(
+                "https://fillips-tech-training-portal-1.onrender.com/api/auth/login",
+                {
+                    email: loginData.email,
+                    password: loginData.password
+                }
+            );
+            console.log("login success:", res.data);
+
+            // after sucess
+            navigate("/dashboard");
+        } catch (error) {
+            console.log("login error:", error.response?.data || error.message);
+        }
+
     };
 
     return (
