@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Loader2, CheckCircle, XCircle, AlertCircle, ChevronsUpDown } from "lucide-react";
+import { URL } from "@/services/const";
 
 import {
     Popover,
@@ -158,7 +159,7 @@ export default function EnrollFormModal({ open, onClose, course }) {
 
         setLoading(true);
         try {
-            const res = await fetch("https://fillips-tech-training-portal-1.onrender.com/api/enquiry/", {
+            const res = await fetch(`${URL}enquiry/`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),
