@@ -32,7 +32,7 @@ const AboutUs = () => {
       name: 'Shruti Sinha',
       role: 'Full Stack Developer',
       image: '/api/placeholder/300/300',
-      bio: 'Former Tech Lead at Fillip Technologies with 5+ years in Full Stack Development and education.',
+      bio: 'Former Tech Lead atFillip Skill Academy with 5+ years in Full Stack Development and education.',
       skills: ['Leadership', 'AI/ML', 'Cloud Computing'],
       social: {
         linkedin: '#',
@@ -102,7 +102,7 @@ const AboutUs = () => {
   ];
 
   const milestones = [
-    { year: '2019', event: 'Founded Fillip Technologies', description: 'Started with a vision to transform IT education in India' },
+    { year: '2019', event: 'FoundedFillip Skill Academy', description: 'Started with a vision to transform IT education in India' },
     { year: '2020', event: 'First 1,000 Students', description: 'Reached our first major milestone during the pandemic' },
     { year: '2021', event: 'Industry Partnerships', description: 'Established partnerships with leading tech companies' },
     { year: '2022', event: 'Advanced 3D Platform', description: 'Launched our revolutionary 3D learning environment' },
@@ -124,7 +124,7 @@ const AboutUs = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6">
               <Star className="w-4 h-4 mr-2" />
-              About Fillip Technologies
+              About Fillip Skill Academy
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
               Transforming IT Education

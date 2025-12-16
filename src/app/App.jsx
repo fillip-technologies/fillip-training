@@ -101,7 +101,7 @@ const Features = () => {
         {/* WHY: Creates context about the value proposition for the user */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Why Choose <span className="text-gradient">Fillip Technologies</span>?
+            Why Choose <span className="text-gradient">Fillip Skill Academy</span>?
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Experience an internship program offering practical learning. Join our internship for freshers that combines technology with proven educational methods.

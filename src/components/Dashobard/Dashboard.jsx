@@ -69,7 +69,7 @@ export default function Dashboard() {
                 <div className="px-6 py-5 flex items-center gap-3 border-b">
                     <div className="w-9 h-9 rounded-md bg-gradient-to-br from-indigo-600 to-teal-400 flex items-center justify-center text-white font-bold">N</div>
                     <div>
-                        <div className="text-sm font-semibold">Fillip Technologies</div>
+                        <div className="text-sm font-semibold">Fillip Skill Academy</div>
                         <div className="text-xs text-gray-500">IT Training</div>
                     </div>
                 </div>

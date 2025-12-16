@@ -220,7 +220,7 @@ const Footer = () => {
                 <div className="pt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center">
 
                     <p className="text-gray-400 text-sm">
-                        © 2025 Fillip Technologies. All rights reserved.
+                        © 2025 Fillip Skill Academy. All rights reserved.
                     </p>
 
                     <div className="flex gap-5 mt-4 sm:mt-0">
