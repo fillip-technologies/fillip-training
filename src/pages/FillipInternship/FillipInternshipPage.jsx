@@ -164,7 +164,7 @@ const FillipInternshipPage = () => {
 
                             <p className="text-xl text-slate-600 mb-8 max-w-2xl text-justify">
                                 Gain hands-on experience through live projects, expert mentorship,
-                                and industry exposure. Join Fillip Technologies internships and
+                                and industry exposure. Join Fillip Skill Academy internships and
                                 become job-ready.
                             </p>
 

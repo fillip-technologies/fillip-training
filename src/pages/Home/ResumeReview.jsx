@@ -91,7 +91,7 @@ export default function HeroResumeReview() {
                             <div className="text-xs text-black-400">Resume Review</div>
                             <div className="mt-2 text-sm text-[#12314A] opacity-70">
                                 Name : Shruti Singh .<br />
-                                Company : Fillip Technologies.
+                                Company : Fillip Skill Academy.
                             </div>
                         </div>
 

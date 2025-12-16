@@ -7,7 +7,7 @@ import CompanyCardSwap from "./CompanyCardSwap";
 export default function TrustedBy() {
     const testimonials = [
         {
-            text: "We have the best engineers on board from Fillip Technologies. Their value addition and ownership make them our top hiring choice.",
+            text: "We have the best engineers on board from Fillip Skill Academy. Their value addition and ownership make them our top hiring choice.",
             name: "Yogesh Lokhande",
             title: "Co-founder, PayGlobal",
             avatar: "/dummy-image.webp"
@@ -42,7 +42,7 @@ export default function TrustedBy() {
                 {/* LEFT: CAROUSEL TESTIMONIALS */}
                 <div>
                     <h2 className="text-4xl md:text-4xl font-bold mb-6">
-                        Where Fillip Technologies {" "}
+                        Where Fillip Skill Academy {" "}
                         <span className="text-blue-300">Students Win</span>
                     </h2>
 
