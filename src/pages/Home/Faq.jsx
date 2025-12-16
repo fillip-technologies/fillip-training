@@ -6,36 +6,34 @@ export default function FaqSection() {
     const faqs = [
         {
             q: "What courses do you offer?",
-            a: "We provide IT training in Web Development, Software Testing, Digital Marketing, Data Science, Cloud Computing, and more job-oriented programs."
+            a: "We offer UI/UX Designing, Graphics Designing, Full-Stack Development, Digital Marketing, AI & Machine Learning, Business Development and other job-oriented courses with live training and expert mentorship."
         },
-
         {
             q: "Are the classes online or offline?",
-            a: "Both online and offline learning modes are available depending on student convenience."
+            a: "We offer both online and offline classes, so you can choose the learning mode that suits your schedule and comfort."
+        },
+        {
+            q: "Do you provide certificates?",
+            a: "Yes, all our programs come with verified certificates after successful completion."
+        },
+        {
+            q: "Are the classes live or recorded?",
+            a: "Our classes are conducted live with interactive sessions, and recorded lessons are also provided so you can revise anytime."
         },
         {
             q: "Can beginners join your courses?",
-            a: "Absolutely! Even without prior experience, you can join and learn from scratch."
-        },
-
-
-        {
-            q: "What is the course duration?",
-            a: "Most courses range from 2 to 9 months depending on program level."
+            a: "Yes! Our courses are beginner-friendly. You can join without experience and start learning from scratch with step-by-step guidance."
         },
         {
             q: "Do you provide study materials?",
-            a: "Yes, students get lifetime access to all learning materials and updates."
-        },
-        {
-            q: "Are classes live or recorded?",
-            a: "We provide live interactive classes along with recorded lessons for revision."
+            a: "Yes, all enrolled students receive lifetime access to complete learning materials, along with future updates."
         },
         {
             q: "How can I enroll?",
-            a: "You can enroll through our website, visit our center, or book a free career counselling call."
+            a: "You can enroll through our website, visit our center in person, or book a free career counselling call for guidance."
         }
     ];
+
 
     const [openIndex, setOpenIndex] = useState(null);
 

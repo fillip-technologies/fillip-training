@@ -3,11 +3,21 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './app/App.jsx'
+import { HelmetProvider } from "react-helmet-async";
+
 
 createRoot(document.getElementById('root')).render(
 
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <HelmetProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </HelmetProvider>
+
+
+
+
+
+
 
 )

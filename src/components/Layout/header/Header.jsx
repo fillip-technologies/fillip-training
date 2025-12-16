@@ -19,7 +19,7 @@ const Header = () => {
 
     const navItems = [
         { name: "Certifications", href: "/certifications" },
-        { name: "Resources", href: "/#resources" },
+        { name: "Contact", href: "/#resources" },
     ];
 
     // Scroll or navigate without reload
@@ -62,9 +62,9 @@ const Header = () => {
                     </Link>
 
                     <div className="flex items-center gap-4">
-                        <Link to="/auth" className="text-slate-700 text-sm font-medium">
+                        {/* <Link to="/auth" className="text-slate-700 text-sm font-medium">
                             Sign In
-                        </Link>
+                        </Link> */}
 
                         <button
                             onClick={() => setIsMenuOpen(true)}
@@ -125,9 +125,9 @@ const Header = () => {
                                     <Button variant="ghost">Sign In</Button>
                                 </Link> */}
 
-                                <Link to="/auth">
+                                {/* <Link to="/auth">
                                     <Button className="bg-blue-600">Sign In</Button>
-                                </Link>
+                                </Link> */}
 
                                 <Button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
                                     Request a Call Back

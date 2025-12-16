@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import EnrollModal from "@/components/common/EnrollModal";
-
 import HeroSection from "./HeroSection";
 import IndustrySection from "./IndustrySection";
 import StickyTabs from "./StickyTabs";

@@ -1,6 +1,10 @@
 import React, { Suspense } from 'react';
 import { Routes, Route, useLocation } from "react-router-dom";
 
+import { Helmet } from "react-helmet-async";
+
+
+
 // Layout components used across all pages
 import Header from "../components/Layout/header/Header";
 import Footer from "../components/Layout/Footer";
@@ -51,6 +55,7 @@ import FillipInternshipPage from "../pages/FillipInternship/FillipInternshipPage
 
 
 
+
 // -------------------------------------------------------
 // Fallback loader to prevent layout shift while 3D scene loads
 // -------------------------------------------------------
@@ -69,20 +74,20 @@ const Features = () => {
   // Defining features here allows easy expansion or editing in future
   const features = [
     {
-      title: "Immersive 3D Learning",
-      description: "Join our internship program for hands-on training in virtual environments simulating real IT scenarios.",
+      title: "Industry-Relevant Skills",
+      description: "Unlock your potential with our internship program, learn all the important and trending skills in one place, ensuring you gain practical expertise for a successful professional future.",
       icon: Target,
       color: "from-blue-500 to-cyan-500"
     },
     {
-      title: "AI-Powered Personalization",
-      description: "Adaptive learning paths in our short term internship program adjust to your pace and learning style efficiently.",
+      title: "Friendly & Supportive Environment",
+      description: "Experience a friendly, supportive environment in our internship program, where our team offers daily guidance, constructive feedback, and encouragement to grow professionally.",
       icon: Brain,
       color: "from-purple-500 to-pink-500"
     },
     {
-      title: "Industry Certifications",
-      description: "Join our internship program to earn recognized certifications from leading technology companies and organizations.",
+      title: "Live Project Training",
+      description: "Our short-term internship program gives you real client project experience. Apply your skills instantly & build a strong portfolio that helps you get hired faster.",
       icon: Award,
       color: "from-orange-500 to-yellow-500"
     },
@@ -104,7 +109,7 @@ const Features = () => {
             Why Choose <span className="text-gradient">Fillip Skill Academy</span>?
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Experience an internship program offering practical learning. Join our internship for freshers that combines technology with proven educational methods.
+            Choosing the right internship program is your gateway to success. Our short term internship program accelerates your learning, equips you with hands-on skills, and sets you on the path to a thriving professional future.
           </p>
         </div>
 
@@ -138,6 +143,16 @@ const Features = () => {
 const HomePage = () => {
   return (
     <>
+      <Helmet>
+        <title>
+          Dedicated Training & Internship Program for Skill Growth
+
+        </title>
+        <meta
+          name="description"
+          content="Upgrade your skills through our training & internship program with expert training, practical sessions, and career support for everyone. Start your journey now."
+        />
+      </Helmet>
       <main>
 
         {/* WHY: Hero must appear first visually; sets brand identity immediately */}
@@ -214,11 +229,11 @@ function App() {
 
         <Route path="/about" element={<AboutUs />} />
         <Route path="/certifications" element={<Certifications />} />
-        <Route path="/auth" element={<AuthPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        {/* <Route path="/auth" element={<AuthPage />} /> */}
+        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         <Route path="/course/:courseSlug" element={<CoursePage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
+        {/* <Route path="/cart" element={<CartPage />} /> */}
+        {/* <Route path="/checkout" element={<CheckoutPage />} /> */}
 
         {/* Training – MULTIPLE SEO ROUTES */}
         <Route path="/fillip-training" element={<FillipTrainingPage />} />

@@ -18,7 +18,7 @@ const Courses = () => {
     {
       id: 1,
       title: 'UI/UX Designing',
-      description: 'Learn UI/UX design, prototyping, and testing with UI UX Designing Training to improve your skills.',
+      description: 'Join our UI UX Designing Training to craft user-friendly interfaces and engaging experiences through hands-on projects and expert mentorship.',
       icon: Cloud,
       duration: '12 weeks',
       students: '2.5K',
@@ -31,7 +31,7 @@ const Courses = () => {
     {
       id: 2,
       title: 'Graphics Designing',
-      description: 'Learn graphic design, branding, and visual creativity through the Graphic Designing Training Program.',
+      description: 'Learn creative design, visual storytelling, and industry-standard tools in our Graphic Designing Training Program with real-time project exposure.',
       icon: Shield,
       duration: '10 weeks',
       students: '1.8K',
@@ -44,7 +44,7 @@ const Courses = () => {
     {
       id: 3,
       title: 'Full-Stack Development',
-      description: 'Enroll in Full Stack Certification Training to learn front-end and back-end development and build web applications.',
+      description: 'Learn to build dynamic websites and applications with our Full Stack Development Training, covering front-end, back-end, and database integration techniques.',
       icon: Code,
       duration: '16 weeks',
       students: '3.2K',
@@ -56,7 +56,7 @@ const Courses = () => {
     {
       id: 4,
       title: 'Digital Marketing',
-      description: 'Master SEO, social media, ads, and analytics to grow brands.',
+      description: 'Learn in-demand skills in SEO, SMM, PPC, and content strategies through our Digital Marketing Training, guided by industry experts and live campaigns.',
       icon: Database,
       duration: '8 weeks',
       students: '1.2K',
@@ -69,7 +69,7 @@ const Courses = () => {
     {
       id: 5,
       title: 'AI & Machine Learning',
-      description: 'Learn artificial intelligence and machine learning algorithms with the AI & ML Internship Program for practical skills.',
+      description: 'Explore AI concepts, build predictive models, and solve real-world problems with our AI & Machine Learning Training program.',
       icon: Cpu,
       duration: '14 weeks',
       students: '2.1K',
@@ -81,7 +81,7 @@ const Courses = () => {
     {
       id: 6,
       title: 'Business Development',
-      description: 'Master sales strategy, client acquisition, and growth tactics through Sales & Business Development Training.',
+      description: 'Enhance growth strategies, lead generation, and client relationship management with our practical Business Development Training.',
       icon: Globe,
       duration: '10 weeks',
       students: '1.5K',
@@ -117,7 +117,8 @@ const Courses = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
             {isInternship ? (
               <>
-                Kickstart Your Career with
+                Turn Learning into Earning:
+
                 <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
                   {" "}Industry-Focused Internships
                 </span>
@@ -126,7 +127,7 @@ const Courses = () => {
               <>
                 Master Job-Ready IT Skills with
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  {" "}Our Industry-Driven Courses
+                  {" "}Learn Job-Ready IT Skills Today
                 </span>
               </>
             )}
@@ -135,7 +136,7 @@ const Courses = () => {
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             {isInternship
               ? "Join Fillip Internship Programs to gain real-world experience, work on live projects, and become job-ready with expert mentorship."
-              : "Explore our professional IT courses designed to help you master in-demand skills and accelerate your tech career."}
+              : "Develop real job-ready IT skills through our internship program, offered by the best internship company in Patna. Learn from expert mentors and work on hands-on projects designed to prepare you for real workplace challenges"}
           </p>
 
         </div>
@@ -160,13 +161,13 @@ const Courses = () => {
                   </div>
 
                   {/* WHY: Brochure download supports informed decision-making */}
-                  <a
+                  {/* <a
                     href="/brochures/sample.pdf" // placeholder
                     download
                     className="p-2 rounded-lg bg-white shadow-sm hover:shadow-md transition-all"
                   >
                     <Download className="w-5 h-5 text-green-600" />
-                  </a>
+                  </a> */}
 
                 </div>
 
