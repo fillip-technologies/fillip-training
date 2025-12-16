@@ -3,8 +3,6 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import { Helmet } from "react-helmet-async";
 
-
-
 // Layout components used across all pages
 import Header from "../components/Layout/header/Header";
 import Footer from "../components/Layout/Footer";
@@ -28,7 +26,9 @@ import HomeBlogSection from '../pages/Home/HomeBlogSection';
 import AboutUs from '../pages/About/AboutUs';
 import CoursePage from '../pages/Courses/CoursePage';
 import Certifications from '../pages/Certfication/Certifications';
+import ContactUs from '../pages/Contact/Contact';
 // import AuthPage from '../components/AuthPage';
+
 
 import Dashboard from '../components/Dashobard/Dashboard';
 
@@ -229,6 +229,7 @@ function App() {
 
         <Route path="/about" element={<AboutUs />} />
         <Route path="/certifications" element={<Certifications />} />
+        <Route path="/contact" element={<ContactUs />} />
         {/* <Route path="/auth" element={<AuthPage />} /> */}
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         <Route path="/course/:courseSlug" element={<CoursePage />} />

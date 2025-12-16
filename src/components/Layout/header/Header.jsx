@@ -19,7 +19,7 @@ const Header = () => {
 
     const navItems = [
         { name: "Certifications", href: "/certifications" },
-        { name: "Contact", href: "/#resources" },
+        { name: "Contact", href: "/Contact" },
     ];
 
     // Scroll or navigate without reload
