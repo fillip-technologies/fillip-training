@@ -10,6 +10,8 @@ export default function AdminSignup() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const [errorMsg, setErrorMsg] = useState("");
+
   const handleSignup = async () => {
     if (!firstName || !lastName || !email || !password) {
       alert("All fields required");
@@ -17,22 +19,25 @@ export default function AdminSignup() {
     }
 
     try {
-      const response = await axios.post(
-        `${URL}auth/register`,
-        {
-          firstName: firstName,
-          lastName: lastName,
-          email: email,
-          password: password,
-          role: "Admin",
-        }
-      );
+      const response = await axios.post(`${URL}auth/register`, {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+        role: "Admin",
+      });
       console.log("Signup Response:", response);
       navigate("/admin/login");
 
       //   window.location.href = "/admin/login";
     } catch (error) {
       console.log("Error while admin signup", error);
+      const message =
+        error.response?.data?.message ||
+        error.message ||
+        "Something went wrong";
+
+      setErrorMsg(message);
     }
   };
 
@@ -118,6 +123,12 @@ export default function AdminSignup() {
             Login
           </Link>
         </p>
+
+        {errorMsg && (
+          <div className="my-4 text-center text-sm text-red-200 bg-red-500/80 border border-red-300/30 rounded-lg p-2">
+            {errorMsg}
+          </div>
+        )}
       </div>
     </div>
   );
