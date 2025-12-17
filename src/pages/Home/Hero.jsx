@@ -88,7 +88,7 @@ const Hero = () => {
           </div>
 
           {/* WHY: Right block visually represents the 3D learning concept without heavy assets */}
-          <div className="relative">
+          <div className="relative hidden md:block">
 
             {/* WHY: Placeholder 3D box visually hints at the immersive environment students experience */}
             <div className="w-full h-96 lg:h-[500px] bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl shadow-2xl flex items-center justify-center">

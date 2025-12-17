@@ -11,7 +11,7 @@ const SEOContent = {
     rating: "4.9 rating",
     price: "₹22,999",
     emi: "₹2,299",
-    heroImg: "/seo-banner.jpg",
+    heroImg: "/course/seo.avif",
 
     description:
         "Master SEO, keyword research, technical optimization, link building & ranking strategies used by top digital marketers. Become a job-ready SEO specialist with real projects.",

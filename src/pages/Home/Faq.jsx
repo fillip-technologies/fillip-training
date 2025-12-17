@@ -42,7 +42,7 @@ export default function FaqSection() {
     };
 
     return (
-        <section className="py-24 bg-gradient-to-br from-white via-blue-50 to-purple-50">
+        <section className="faq-section py-24 bg-gradient-to-br from-white via-blue-50 to-purple-50">
             <div className="max-w-4xl mx-auto px-6">
 
                 {/* HEADER */}

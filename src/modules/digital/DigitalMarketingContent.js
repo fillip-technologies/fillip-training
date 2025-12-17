@@ -11,7 +11,7 @@ const DigitalMarketingContent = {
     rating: "4.9 rating",
     price: "₹22,999",
     emi: "₹2,299",
-    heroImg: "/digital-marketing.jpg",
+    heroImg: "/course/digital-marketing.jpg",
 
     description:
         "Learn SEO, Google Ads, Social Media Marketing, Email Marketing, Analytics, and become a job-ready digital marketer with real campaigns.",
