@@ -1,1 +1,1 @@
-export const URL = "https://fillip-training-backend.onrender.com/api/";
+export const URL = "https://api.fillipskillacademy.com/api/";
