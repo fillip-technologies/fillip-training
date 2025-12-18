@@ -135,8 +135,8 @@ const Courses = () => {
 
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             {isInternship
-              ? "Join Fillip Internship Programs to gain real-world experience, work on live projects, and become job-ready with expert mentorship."
-              : "Develop real job-ready IT skills through our internship program, offered by the best internship company in Patna. Learn from expert mentors and work on hands-on projects designed to prepare you for real workplace challenges"}
+              ? "Join Fillip Skill Academy Internship Programs to gain real-world experience, work on live projects, and become job-ready with expert mentorship."
+              : "Develop real job-ready IT skills through our internship program, offered by the best internship company. Learn from expert mentors and work on hands-on projects designed to prepare you for real workplace challenges"}
           </p>
 
         </div>

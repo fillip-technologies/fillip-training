@@ -11,7 +11,7 @@ const GoogleAdsContent = {
     rating: "4.9 rating",
     price: "₹19,999",
     emi: "₹1,999",
-    heroImg: "/google-ads-banner.jpg",
+    heroImg: "/course/googlead.png",
 
     description:
         "Master Google Ads, PPC campaigns, keyword research, bidding strategies, optimization, and analytics to become a performance marketing expert.",

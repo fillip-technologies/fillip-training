@@ -114,8 +114,8 @@ const Footer = () => {
                         <div>
                             <h3 className="text-white font-semibold text-lg mb-4 tracking-wide">Phone</h3>
                             <ul className="space-y-3 text-[15px] text-gray-300">
-                                <li><a href="tel:+917545999990" className="hover:text-white">+91 7545999990</a></li>
-                                <li><a href="tel:+917545999996" className="hover:text-white">+91 7545999996</a></li>
+                                <li><a href="tel:+917545999990" className="hover:text-white">+91 7545999993</a></li>
+                                <li><a href="tel:+917545999996" className="hover:text-white">+91 7545999995</a></li>
                             </ul>
                         </div>
 

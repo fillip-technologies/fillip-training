@@ -6,7 +6,7 @@ const CloudContent = {
     rating: "4.9 rating",
     price: "₹22,999",
     emi: "₹2,299",
-    heroImg: "/cloud.jpg",
+    heroImg: "/course/backend.png",
 
     highlights: [
         { title: "AWS + Azure", desc: "Learn top cloud platforms" },

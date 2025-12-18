@@ -11,7 +11,7 @@ const CyberSecurityContent = {
     rating: "4.9 rating",
     price: "₹29,999",
     emi: "₹2,999",
-    heroImg: "/cyber.jpg",
+    heroImg: "/course/cyber.png",
 
     description:
         "Learn Ethical Hacking, Network Security, Kali Linux, Web App Pentesting, and real-world cyber attack simulations. Become job-ready for cyber security and penetration testing roles.",

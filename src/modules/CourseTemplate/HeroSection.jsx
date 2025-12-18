@@ -73,7 +73,7 @@ export default function HeroSection({ data, setOpenEnroll }) {
                                 className="inline-flex items-center gap-3 px-6 py-3 rounded-lg text-white font-semibold shadow-lg"
                                 style={{ background: GRADIENT_STYLE }}
                             >
-                                <Play className="w-4 h-4" /> Enroll Now
+                                <Play className="w-4 h-4" /> Enquiry Now
                             </button>
 
                             <button className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border bg-white text-slate-700 shadow-sm">
@@ -137,7 +137,12 @@ export default function HeroSection({ data, setOpenEnroll }) {
                                     Apply Now
                                 </button>
 
-                                <button className="w-full py-3 rounded-lg border">Request Call</button>
+                                <a href="tel:7545999993" className="block w-full">
+                                    <button className="w-full py-3 rounded-lg border">
+                                        Request Call
+                                    </button>
+                                </a>
+
                             </div>
                         </motion.div>
                     </div>

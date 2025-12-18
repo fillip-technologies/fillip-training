@@ -1,81 +1,242 @@
 export default function CertificateDesign({ data }) {
     const {
-        certificateNo = "RR25-10-1881823001",
-        name = "SHRUTI SINGH",
-        description =
-        "He has demonstrated strong dedication, actively participated in the Python Programming training, and consistently performed with sincerity throughout the program.",
-        title = "CERTIFICATE OF COMPLETION",
-        subtitle = "THIS CERTIFIES THAT",
-        logo = "/certificates/logo.png",
-        badge = "/certificates/badge.png",
+        certificateId = "CERT-2025-00123",
+        name = "Shruti Singh",
+        course = "Advanced Frontend Development",
+        description = "",
+        issueDate = "17 Dec 2025",
     } = data || {};
 
     return (
-        <div className="w-full flex justify-center px-4 py-10 bg-gradient-to-br from-gray-50 to-gray-100">
-
-            {/* Outer clean card */}
-            <div className="w-full max-w-5xl bg-white p-8 sm:p-12 md:p-16 rounded-3xl shadow-2xl border border-gray-200 relative overflow-hidden">
-
-                {/* Decorative top accent */}
-                <div className="absolute top-0 left-0 w-full h-2 bg-blue-600 rounded-t-3xl"></div>
-
-                {/* Certificate Number */}
-                <p className="text-sm text-gray-600 mb-6 tracking-wide">
-                    <strong className="font-semibold">Certificate No : </strong>
-                    {certificateNo}
-                </p>
-
-                {/* Logo */}
-                <div className="flex justify-center mb-8">
-                    <img
-                        src={logo}
-                        alt="Company Logo"
-                        className="h-12 sm:h-14 md:h-16 object-contain opacity-90"
-                    />
-                </div>
-
-                {/* Title */}
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-700 text-center uppercase tracking-wide">
-                    {title}
+        <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+            <div
+                style={{
+                    position: "relative",
+                    width: "1123px",
+                    height: "794px",
+                    backgroundImage: "url('/certificate-bge.jpg')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    fontFamily: "Arial, sans-serif",
+                }}
+            >
+                {/* TITLE */}
+                <h1
+                    style={{
+                        position: "absolute",
+                        top: "140px",
+                        width: "100%",
+                        textAlign: "center",
+                        fontSize: "46px",
+                        fontWeight: "800",
+                        letterSpacing: "6px",
+                        color: "#0e2a2d",
+                    }}
+                >
+                    CERTIFICATE
                 </h1>
 
-                {/* Subtitle */}
-                <p className="text-base sm:text-lg md:text-xl text-gray-700 text-center mt-3 tracking-wider">
-                    {subtitle}
+                <p
+                    style={{
+                        position: "absolute",
+                        top: "200px",
+                        width: "100%",
+                        textAlign: "center",
+
+                        color: "#6b7280",
+                        fontSize: "18px",
+                    }}
+                >
+                    of Completion
                 </p>
 
-                {/* Name */}
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-600 text-center mt-4 uppercase tracking-wider">
+                {/* MICRO DIVIDER */}
+                <div
+                    style={{
+                        position: "absolute",
+                        top: "235px",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                    }}
+                >
+                    <span style={{ width: "40px", height: "1px", background: "#c9a24d" }} />
+                    <span style={{ width: "6px", height: "6px", background: "#c9a24d", borderRadius: "50%" }} />
+                    <span style={{ width: "40px", height: "1px", background: "#c9a24d" }} />
+                </div>
+
+                {/* SUBTITLE */}
+                <p
+                    style={{
+                        position: "absolute",
+                        top: "255px",
+                        width: "100%",
+                        textAlign: "center",
+                        textTransform: "uppercase",
+                        letterSpacing: "3px",
+                        fontSize: "13px",
+                        color: "#374151",
+                    }}
+                >
+                    This certificate is proudly presented to
+                </p>
+
+                {/* WATERMARK (ASYMMETRIC) */}
+                <img
+                    src="/logonew.png"
+                    alt="Watermark"
+                    style={{
+                        position: "absolute",
+                        top: "270px",
+                        left: "380px",
+                        width: "360px",
+                        opacity: 0.05,
+                        pointerEvents: "none",
+                    }}
+                />
+
+                {/* NAME GLOW */}
+                <div
+                    style={{
+                        position: "absolute",
+                        top: "290px",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        width: "520px",
+                        height: "90px",
+                        background: "rgba(201,162,77,0.08)",
+                        filter: "blur(22px)",
+                        borderRadius: "999px",
+                    }}
+                />
+
+                {/* NAME */}
+                <h2
+                    style={{
+                        position: "absolute",
+                        top: "300px",
+                        width: "100%",
+                        textAlign: "center",
+                        fontSize: "48px",
+                        color: "#0e2a2d",
+                        fontFamily: "'Brush Script MT','Segoe Script',cursive",
+                    }}
+                >
                     {name}
                 </h2>
 
-                {/* Decorative underline */}
-                <div className="flex justify-center mt-3 mb-6">
-                    <div className="w-24 h-1 bg-blue-600 rounded-full"></div>
-                </div>
+                {/* NAME LINE */}
+                <div
+                    style={{
+                        position: "absolute",
+                        top: "360px",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        width: "260px",
+                        height: "2px",
+                        background: "#c9a24d",
+                    }}
+                />
 
-                {/* Description */}
-                <p className="text-sm sm:text-lg md:text-xl text-gray-700 text-center leading-relaxed max-w-3xl mx-auto">
-                    {description}
+                {/* COURSE LABEL */}
+                <p
+                    style={{
+                        position: "absolute",
+                        top: "390px",
+                        width: "100%",
+                        textAlign: "center",
+                        fontSize: "16px",
+                        color: "#374151",
+                    }}
+                >
+                    for successfully completing the course
                 </p>
 
-                {/* Badge */}
-                <div className="flex justify-center mt-12 mb-6">
-                    <img
-                        src={badge}
-                        alt="Badge"
-                        className="h-20 sm:h-24 md:h-28 object-contain drop-shadow-md"
-                    />
+                {/* COURSE BADGE */}
+                <div
+                    style={{
+                        position: "absolute",
+                        top: "420px",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        padding: "8px 26px",
+                        borderRadius: "999px",
+                        background: "rgba(14,42,45,0.06)",
+                        color: "#0e2a2d",
+                        fontWeight: "600",
+                        fontSize: "16px",
+                    }}
+                >
+                    {course}
                 </div>
 
-                {/* Signatures */}
-                <div className="flex justify-between items-center mt-10 px-8">
-                    <div className="w-32 sm:w-40 border-t border-gray-500"></div>
-                    <div className="w-32 sm:w-40 border-t border-gray-500"></div>
+                {/* DESCRIPTION */}
+                {description && (
+                    <p
+                        style={{
+                            position: "absolute",
+                            top: "470px",
+                            width: "100%",
+                            padding: "0 220px",
+                            textAlign: "center",
+                            fontSize: "15px",
+                            lineHeight: "1.7",
+                            color: "#4b5563",
+                        }}
+                    >
+                        {description}
+                    </p>
+                )}
+
+                {/* COURSE DESCRIPTION */}
+                <p
+                    style={{
+                        position: "absolute",
+                        top: "470px",
+                        width: "100%",
+                        padding: "0 260px",
+                        textAlign: "center",
+                        fontSize: "14px",
+                        lineHeight: "1.6",
+                        color: "#4b5563",
+                    }}
+                >
+                    This is to certify that the above individual has successfully completed
+                    the course and demonstrated commitment, consistency, and proficiency
+                    throughout the program.
+                </p>
+
+                {/* SIGNATURE */}
+                <div
+                    style={{
+                        position: "absolute",
+                        bottom: "140px",
+                        left: "160px",
+                        textAlign: "center",
+                    }}
+                >
+                    <div style={{ width: "160px", borderTop: "1px solid #4b5563", marginBottom: "6px" }} />
+                    <p style={{ fontSize: "13px" }}>MANAGER</p>
                 </div>
 
-                {/* Footer subtle line */}
-                <div className="absolute bottom-0 left-0 w-full h-2 bg-blue-600 rounded-b-3xl"></div>
+                {/* CERT ID STAMP */}
+                <div
+                    style={{
+                        position: "absolute",
+                        bottom: "70px",
+                        left: "50px",
+                        padding: "6px 10px",
+                        border: "1px solid rgba(0,0,0,0.15)",
+                        fontSize: "10px",
+                        letterSpacing: "2px",
+                        textTransform: "uppercase",
+                        color: "#374151",
+                    }}
+                >
+                    Certificate ID: {certificateId}
+                </div>
             </div>
         </div>
     );

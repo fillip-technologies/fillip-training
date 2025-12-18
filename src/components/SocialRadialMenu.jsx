@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Phone, Facebook, Instagram, MessageCircle, Plus, X } from "lucide-react";
+import { Phone, Facebook, Instagram, MessageCircle, Plus, X, Linkedin } from "lucide-react";
 
 export default function SocialRadialMenu() {
     const [open, setOpen] = useState(false);
@@ -48,7 +48,8 @@ export default function SocialRadialMenu() {
         { icon: <Phone size={20} />, link: "tel:7545999996", color: "bg-orange-500" },
         { icon: <MessageCircle size={20} />, link: "https://wa.me/7545999996", color: "bg-green-500" },
         { icon: <Facebook size={20} />, link: "https://www.facebook.com/FillipTechnologies/", color: "bg-blue-600" },
-        { icon: <Instagram size={20} />, link: "https://www.instagram.com/filliptechnologies/", color: "bg-pink-500" }
+        { icon: <Instagram size={20} />, link: "https://www.instagram.com/filliptechnologies/", color: "bg-pink-500" },
+        { icon: <Linkedin size={20} />, link: "https://www.linkedin.com/company/110626964/admin/dashboard/", color: "bg-blue-500" }
     ];
 
     return (

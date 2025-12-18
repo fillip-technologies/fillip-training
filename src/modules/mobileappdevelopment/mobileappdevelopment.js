@@ -11,7 +11,7 @@ const MobileAppContent = {
     rating: "4.9 rating",
     price: "₹32,999",
     emi: "₹3,299",
-    heroImg: "/mobile-app.jpg",
+    heroImg: "/course/frontendev.png",
 
     description:
         "Become a professional mobile app developer. Learn Flutter + Dart to build beautiful Android & iOS apps with real projects, APIs, authentication, and deployment.",

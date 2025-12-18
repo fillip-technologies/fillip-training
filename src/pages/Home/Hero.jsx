@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 import { Button } from '@/components/ui/button';
 import { Play, ArrowRight, Star, Users, BookOpen } from 'lucide-react';
 
@@ -32,7 +34,7 @@ const Hero = () => {
             {/* WHY: Small badge creates authority and positions brand as a top-rated platform */}
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6">
               <Star className="w-4 h-4 mr-2" />
-              #1 IT Training Platform In Patna
+              #1 IT Training Platform
             </div>
 
             {/* WHY: Strong headline communicates core value proposition immediately */}
@@ -44,29 +46,35 @@ const Hero = () => {
             {/* WHY: Description adds clarity & relevance, helping users understand real project-based training */}
             <p className="text-xl text-slate-600 mb-8 max-w-2xl text-justify">
               Experience immersive learning with AI/ML and Web Development courses. Build practical skills for your career.
-              Join the Best internship company in Patna. We offer internship for students with real projects.
+              Join the Best internship company. We offer internship for students with real projects.
               You learn, practice, and grow with expert guidance. Perfect for shaping your future in the tech world.
 
             </p>
 
             {/* WHY: CTAs guide users towards next steps — "Join" (primary) and "Demo" (secondary) */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg"
-              >
-                Join Us
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+              <Link to="/contact">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg"
+                >
+                  Join Us
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
 
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-2 border-slate-300 hover:border-blue-500 px-8 py-4 text-lg"
-              >
-                <Play className="mr-2 w-5 h-5" />
-                Watch Demo
-              </Button>
+
+              <a href="https://www.youtube.com/channel/UCY_2fKHQpc0UNpfY5_b3ZZA" target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-2 border-slate-300 hover:border-blue-500 px-8 py-4 text-lg"
+                >
+                  <Play className="mr-2 w-5 h-5" />
+                  Watch Demo
+                </Button>
+              </a>
+
             </div>
 
             {/* WHY: Stats instantly build credibility using measurable proof */}
@@ -97,7 +105,7 @@ const Hero = () => {
                 {/* WHY: Floating 3D-style cube gives futuristic feel → aligns with tech training branding */}
                 <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl mx-auto mb-4 flex items-center justify-center transform rotate-12 hover:rotate-0 transition-transform duration-300">
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                    <span className="text-blue-600 font-bold text-xl">3D</span>
+                    <span className="text-blue-600 font-bold text-xl">FSA</span>
                   </div>
                 </div>
 

@@ -129,9 +129,12 @@ const Header = () => {
                                     <Button className="bg-blue-600">Sign In</Button>
                                 </Link> */}
 
-                                <Button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-                                    Request a Call Back
-                                </Button>
+                                <a href="tel:+917545999993">
+                                    <Button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white flex items-center gap-2">
+                                        Request a Call Back
+                                    </Button>
+                                </a>
+
                             </div>
                         </div>
                     </div>
