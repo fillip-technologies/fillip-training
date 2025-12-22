@@ -44,6 +44,7 @@ export default function EnquiryFormUI() {
           search: debouncedSearch || undefined,
         },
       });
+
       console.log(res.data);
       console.log(res.data.data);
       settotalPages(res.data.totalPages);
