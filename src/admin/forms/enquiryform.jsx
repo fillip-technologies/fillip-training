@@ -11,11 +11,14 @@ import {
 } from "lucide-react";
 import { URL } from "@/services/const";
 import { set } from "react-hook-form";
+import { Button } from "@/components/button";
 
 export default function EnquiryFormUI() {
   const [search, setSearch] = useState("");
   const [courseFilter, setCourseFilter] = useState("All");
   const [statusFilter, setStatusFilter] = useState("All");
+
+  const [debouncedSearch, setDebouncedSearch] = useState(search);
 
   const [loading, setLoading] = useState(true);
 
@@ -34,11 +37,11 @@ export default function EnquiryFormUI() {
   async function user() {
     try {
       setLoading(true);
-      //   const res = await axios.get(`${URL}enquiry`);
       const res = await axios.get(`${URL}enquiry`, {
         params: {
           page: page,
           limit: limit,
+          search: debouncedSearch || undefined,
         },
       });
 
@@ -55,59 +58,21 @@ export default function EnquiryFormUI() {
     }
   }
 
-  // API GETTING BY ID
-  // async function getEnquiryByid(id) {
-  //     const res = await axios.get(`https://fillips-tech-training-portal-1.onrender.com/api/enquiry/${id}`);
-  //     console.log(res.data.data);
-  // }
-
-  // const enquiriesData = [
-  //     {
-  //         id: 1,
-  //         name: "John Doe",
-  //         email: "john@gmail.com",
-  //         phone: "9876543210",
-  //         course: "Full Stack Development",
-  //         status: "Pending",
-  //         remark: "",
-  //         date: "2025-01-04",
-  //     },
-  //     {
-  //         id: 2,
-  //         name: "Neha Sharma",
-  //         email: "neha@gmail.com",
-  //         phone: "9876500000",
-  //         course: "UI/UX Design",
-  //         status: "Completed",
-  //         remark: "Follow-up done",
-  //         date: "2025-01-03",
-  //     },
-  //     {
-  //         id: 3,
-  //         name: "Rohan Kumar",
-  //         email: "rohan@gmail.com",
-  //         phone: "9800000000",
-  //         course: "Cyber Security",
-  //         status: "Pending",
-  //         remark: "",
-  //         date: "2025-01-02",
-  //     },
-  // ];
-
   const [enquiries, setEnquiries] = useState([]);
   console.log("the enquiries", enquiries);
 
   const filtered = enquiries.filter((e) => {
-    const q = search.toLowerCase();
-    const matchSearch =
-      e.name.toLowerCase().includes(q) ||
-      e.email.toLowerCase().includes(q) ||
-      e.phone.includes(q);
+    // const q = search.toLowerCase();
+    // const matchSearch =
+    //   e.name.toLowerCase().includes(q) ||
+    //   e.email.toLowerCase().includes(q) ||
+    //   e.phone.includes(q);
 
     const matchCourse = courseFilter === "All" || e.course === courseFilter;
     const matchStatus = statusFilter === "All" || e.status === statusFilter;
 
-    return matchSearch && matchCourse && matchStatus;
+    // return matchSearch && matchCourse && matchStatus;
+    return matchCourse && matchStatus;
   });
 
   console.log(filtered);
@@ -180,9 +145,17 @@ export default function EnquiryFormUI() {
   };
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [search]);
+
+  useEffect(() => {
     console.log("hii");
     user();
-  }, [page]);
+  }, [page, debouncedSearch]);
 
   useEffect(() => {
     if (!loading) {
@@ -190,11 +163,19 @@ export default function EnquiryFormUI() {
     }
   }, [loading]);
 
+  const handleEnroll = (id) => {
+    console.log("Enroll clicked for id:", id);
+  };
+
   return (
     <>
       {loading ? (
         <div className="flex items-center justify-center h-screen">
           <LoaderCircle className="animate-spin w-12 h-12" />
+        </div>
+      ) : filtered.length === 0 ? (
+        <div className="text-xl flex items-center justify-center h-screen">
+          NO ENQUIRIES FOUND
         </div>
       ) : (
         <div className="p-6 space-y-6">
@@ -261,6 +242,7 @@ export default function EnquiryFormUI() {
                   <th className="px-5 py-3 text-left">Status</th>
                   <th className="px-5 py-3 text-left">Remark</th>
                   <th className="px-5 py-3 text-center"></th>
+                  <th className="px-5 py-3 text-left"></th>
                 </tr>
               </thead>
 
@@ -348,6 +330,14 @@ export default function EnquiryFormUI() {
                                             <Trash2 className="w-4 h-4" />
                                         </button> */}
                       </div>
+                    </td>
+                    <td className="px-5 py-3">
+                      <Button
+                        className="cursor-pointer"
+                        onClick={() => handleEnroll(row.id)}
+                      >
+                        Enroll
+                      </Button>
                     </td>
                   </tr>
                 ))}
