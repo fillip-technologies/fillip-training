@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { URL } from "@/services/const";
 import { set } from "react-hook-form";
+import { Button } from "@/components/button";
 
 export default function EnquiryFormUI() {
   const [search, setSearch] = useState("");
@@ -161,6 +162,10 @@ export default function EnquiryFormUI() {
     }
   }, [loading]);
 
+  const handleEnroll = (id) => {
+    console.log("Enroll clicked for id:", id);
+  };
+
   return (
     <>
       {loading ? (
@@ -236,6 +241,7 @@ export default function EnquiryFormUI() {
                   <th className="px-5 py-3 text-left">Status</th>
                   <th className="px-5 py-3 text-left">Remark</th>
                   <th className="px-5 py-3 text-center"></th>
+                  <th className="px-5 py-3 text-left"></th>
                 </tr>
               </thead>
 
@@ -323,6 +329,14 @@ export default function EnquiryFormUI() {
                                             <Trash2 className="w-4 h-4" />
                                         </button> */}
                       </div>
+                    </td>
+                    <td className="px-5 py-3">
+                      <Button
+                        className="cursor-pointer"
+                        onClick={() => handleEnroll(row.id)}
+                      >
+                        Enroll
+                      </Button>
                     </td>
                   </tr>
                 ))}
