@@ -22,64 +22,60 @@ import AssignCertificate from "./pages/certificates/modals/AssignCertificate";
 
 import Attendance from "./pages/attendance/Attendance";
 import EnquiryFormUI from "./forms/enquiryform";
+import Contactform from "./forms/Contactform";
 
 export default function AdminApp() {
+  // FRONTEND AUTH MOCK
+  const isAuthenticated = () => {
+    return localStorage.getItem("adminToken") !== null;
+  };
 
-    // FRONTEND AUTH MOCK
-    const isAuthenticated = () => {
-        return localStorage.getItem("adminToken") !== null;
-    };
+  return (
+    <Routes>
+      {/*  PUBLIC AUTH ROUTES */}
+      <Route path="login" element={<AdminLogin />} />
+      <Route path="signup" element={<AdminSignup />} />
 
-    return (
-        <Routes>
+      {/*  PROTECTED ROUTES */}
+      <Route
+        path="/*"
+        element={
+          isAuthenticated() ? <AdminShell /> : <Navigate to="/admin/login" />
+        }
+      >
+        <Route
+          index
+          element={
+            isAuthenticated() ? (
+              <Dashboard />
+            ) : (
+              <Navigate to="/admin/login" replace />
+            )
+          }
+        />
 
-            {/*  PUBLIC AUTH ROUTES */}
-            <Route path="login" element={<AdminLogin />} />
-            <Route path="signup" element={<AdminSignup />} />
+        {/* Students */}
+        <Route path="students/fullstack" element={<FullStackStudents />} />
+        <Route path="students/uiux" element={<UiUxStudents />} />
+        <Route path="students/aiml" element={<AiMlStudents />} />
 
-            {/*  PROTECTED ROUTES */}
-            <Route
-                path="/*"
-                element={
-                    isAuthenticated()
-                        ? <AdminShell />
-                        : <Navigate to="/admin/login" />
-                }
-            >
-                <Route
-                    index
-                    element={
-                        isAuthenticated() ? (
-                            <Dashboard />
-                        ) : (
-                            <Navigate to="/admin/login" replace />
-                        )
-                    }
-                />
+        {/* Other Pages */}
+        <Route path="instructors" element={<Instructors />} />
+        <Route path="courses" element={<Courses />} />
+        <Route path="Batches" element={<Batches />} />
 
+        {/* Certificates */}
+        <Route path="certificates" element={<Certificates />} />
+        <Route path="certificates/templates" element={<Templates />} />
+        <Route path="certificates/assign" element={<AssignCertificate />} />
 
-                {/* Students */}
-                <Route path="students/fullstack" element={<FullStackStudents />} />
-                <Route path="students/uiux" element={<UiUxStudents />} />
-                <Route path="students/aiml" element={<AiMlStudents />} />
+        {/* Attendance */}
+        <Route path="attendance" element={<Attendance />} />
 
-                {/* Other Pages */}
-                <Route path="instructors" element={<Instructors />} />
-                <Route path="courses" element={<Courses />} />
-                <Route path="Batches" element={<Batches />} />
-
-                {/* Certificates */}
-                <Route path="certificates" element={<Certificates />} />
-                <Route path="certificates/templates" element={<Templates />} />
-                <Route path="certificates/assign" element={<AssignCertificate />} />
-
-                {/* Attendance */}
-                <Route path="attendance" element={<Attendance />} />
-
-                {/* Forms */}
-                <Route path="forms/enquiryform" element={<EnquiryFormUI />} />
-            </Route>
-
-        </Routes>
-    );
+        {/* Forms */}
+        <Route path="forms/enquiryform" element={<EnquiryFormUI />} />
+        <Route path="forms/contact" element={<Contactform />} />
+      </Route>
+    </Routes>
+  );
 }

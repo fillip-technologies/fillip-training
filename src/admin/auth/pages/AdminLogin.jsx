@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { URL } from "@/services/const";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
@@ -32,11 +33,14 @@ export default function AdminLogin() {
           withCredentials: true,
         }
       );
-      console.log("Login Response:", response);
-      localStorage.setItem("adminToken", "dummy-token-123");
+      // console.log("Login Response:", response);
+      // console.log("Login Response:", response.data.data.token);
+      localStorage.setItem("adminToken", response.data.data.token);
+      toast.success("Login Successful!");
       navigate("/admin/");
     } catch (error) {
       console.log("Error while admin login", error);
+      toast.error("Login Failed. Please try again later.");
     }
   };
 

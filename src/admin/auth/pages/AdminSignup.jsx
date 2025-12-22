@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { URL } from "@/services/const";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function AdminSignup() {
   const [firstName, setfirstName] = useState("");
@@ -27,6 +28,7 @@ export default function AdminSignup() {
         role: "Admin",
       });
       console.log("Signup Response:", response);
+      toast.success("Signup Successful! Please login.");
       navigate("/admin/login");
 
       //   window.location.href = "/admin/login";
@@ -36,6 +38,7 @@ export default function AdminSignup() {
         error.response?.data?.message ||
         error.message ||
         "Something went wrong";
+      toast.error("Signup Failed. " + message);
 
       setErrorMsg(message);
     }

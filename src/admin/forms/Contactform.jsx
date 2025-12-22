@@ -1,0 +1,140 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { LoaderCircle } from "lucide-react";
+import { URL } from "@/services/const";
+
+export default function Contactform() {
+  const [contacts, setContacts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const [page, setPage] = useState(1);
+  const limit = 10;
+  const [totalPages, setTotalPages] = useState(1);
+
+  async function fetchContacts() {
+    try {
+      setLoading(true);
+      const token = localStorage.getItem("adminToken");
+      const res = await axios.get(`${URL}contact`, {
+        params: {
+          page: page,
+          limit: limit,
+        },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      //   console.log(res);
+      //   console.log(res.data.currentPage);
+      //   console.log(res.data.totalContacts);
+      //   console.log(res.data.totalPages);
+
+      setContacts(res.data.data || []);
+      setTotalPages(res.data.totalPages || 1);
+    } catch (error) {
+      console.error("Error fetching contacts:", error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    fetchContacts();
+  }, [page]);
+
+  useEffect(() => {
+    if (!loading) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [loading]);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <LoaderCircle className="animate-spin w-12 h-12" />
+      </div>
+    );
+  }
+
+  if (contacts.length === 0) {
+    return (
+      <div className="text-xl flex items-center justify-center h-screen">
+        NO CONTACT RECORDS FOUND
+      </div>
+    );
+  }
+
+  return (
+    <div className="p-6 space-y-6">
+      {/* HEADER */}
+      <div>
+        <h1 className="text-2xl font-bold text-gray-900">Contact Form Data</h1>
+        <p className="text-gray-500 mt-1">
+          List of all contact form submissions
+        </p>
+      </div>
+
+      {/* TABLE */}
+      <div className="bg-white shadow-sm border rounded-xl overflow-hidden">
+        <table className="w-full text-sm">
+          <thead className="bg-gray-50 border-b">
+            <tr className="text-gray-600 font-medium">
+              <th className="px-5 py-3 text-left">Name</th>
+              <th className="px-5 py-3 text-left">Email</th>
+              <th className="px-5 py-3 text-left">Phone</th>
+              <th className="px-5 py-3 text-left">Message</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {contacts.map((row) => (
+              <tr key={row.id} className="border-b hover:bg-gray-50">
+                <td className="px-5 py-3 font-medium">{row.fullName}</td>
+                <td className="px-5 py-3">{row.email || "-"}</td>
+                <td className="px-5 py-3">{row.phone || "-"}</td>
+                <td className="px-5 py-3">{row.message}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* PAGINATION */}
+      <div className="flex justify-between items-center gap-3 mt-4">
+        <div className="flex-col items-center justify-between px-4 py-2 text-gray-500">
+          <div>
+            Showing <span className="font-medium text-gray-700">{page}</span> of{" "}
+            <span className="font-medium text-gray-700">
+              {totalPages} Pages
+            </span>
+          </div>
+
+          <div>
+            Total records:{" "}
+            <span className="text-gray-800">{contacts.length}</span>
+          </div>
+        </div>
+
+        <div className="flex space-x-2 items-center">
+          <button
+            disabled={page === 1}
+            onClick={() => setPage((p) => p - 1)}
+            className="px-3 py-1 border rounded disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+          >
+            Prev
+          </button>
+
+          <span className="text-sm">Page {page}</span>
+
+          <button
+            disabled={page === totalPages}
+            onClick={() => setPage((p) => p + 1)}
+            className="px-3 py-1 border rounded disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
