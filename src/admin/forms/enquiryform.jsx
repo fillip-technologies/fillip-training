@@ -41,6 +41,7 @@ export default function EnquiryFormUI() {
           limit: limit,
         },
       });
+
       console.log(res.data);
       console.log(res.data.data);
       settotalPages(res.data.totalPages);
