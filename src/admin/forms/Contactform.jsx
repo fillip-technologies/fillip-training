@@ -10,6 +10,7 @@ export default function Contactform() {
   const [page, setPage] = useState(1);
   const limit = 10;
   const [totalPages, setTotalPages] = useState(1);
+  const [totalContacts, settotalContacts] = useState(0);
 
   async function fetchContacts() {
     try {
@@ -24,11 +25,11 @@ export default function Contactform() {
           Authorization: `Bearer ${token}`,
         },
       });
-      //   console.log(res);
+      // console.log(res);
       //   console.log(res.data.currentPage);
       //   console.log(res.data.totalContacts);
       //   console.log(res.data.totalPages);
-
+      settotalContacts(res.data.totalContacts || 0);
       setContacts(res.data.data || []);
       setTotalPages(res.data.totalPages || 1);
     } catch (error) {
@@ -111,7 +112,7 @@ export default function Contactform() {
 
           <div>
             Total records:{" "}
-            <span className="text-gray-800">{contacts.length}</span>
+            <span className="text-gray-800">{totalContacts}</span>
           </div>
         </div>
 

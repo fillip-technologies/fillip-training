@@ -34,6 +34,7 @@ export default function EnquiryFormUI() {
   const [page, setPage] = useState(1);
   const limit = 10;
   const [totalPages, settotalPages] = useState(0);
+  const [totalEnquiries, settotalEnquiries] = useState(0);
 
   // API integration with axios
 
@@ -99,6 +100,7 @@ export default function EnquiryFormUI() {
 
       console.log(res.data);
       console.log(res.data.data);
+      settotalEnquiries(res.data.totalEnquiries);
       settotalPages(res.data.totalPages);
       setEnquiries(res.data.data);
       console.log("userData");
@@ -415,24 +417,40 @@ export default function EnquiryFormUI() {
             </table>
           </div>
 
-          <div className="flex justify-end items-center gap-3 mt-4">
-            <button
-              disabled={page === 1}
-              onClick={() => setPage((p) => Math.max(p - 1, 1))}
-              className="px-3 py-1 border rounded disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
-            >
-              Prev
-            </button>
+          <div className="flex justify-between items-center gap-3 mt-4">
+            <div className="flex-col items-center justify-between px-4 py-2 text-gray-500">
+              <div>
+                Showing{" "}
+                <span className="font-medium text-gray-700">{page}</span> of{" "}
+                <span className="font-medium text-gray-700">
+                  {totalPages} Pages
+                </span>
+              </div>
 
-            <span className="text-sm">Page {page}</span>
+              <div>
+                Total records:{" "}
+                <span className="text-gray-800">{totalEnquiries}</span>
+              </div>
+            </div>
+            <div className="flex space-x-2 items-center">
+              <button
+                disabled={page === 1}
+                onClick={() => setPage((p) => Math.max(p - 1, 1))}
+                className="px-3 py-1 border rounded disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+              >
+                Prev
+              </button>
 
-            <button
-              disabled={page === totalPages}
-              onClick={() => setPage((p) => p + 1)}
-              className="px-3 py-1 border rounded disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
-            >
-              Next
-            </button>
+              <span className="text-sm">Page {page}</span>
+
+              <button
+                disabled={page === totalPages}
+                onClick={() => setPage((p) => p + 1)}
+                className="px-3 py-1 border rounded disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+              >
+                Next
+              </button>
+            </div>
           </div>
 
           {/* REMARK MODAL */}
