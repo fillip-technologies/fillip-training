@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { LoaderCircle } from "lucide-react";
 import { URL } from "@/services/const";
 import { Button } from "@/components/ui/button";
+import { toast } from "react-toastify";
 
 const EnrolledStudents = () => {
   const [contacts, setContacts] = useState([]);
@@ -22,17 +23,18 @@ const EnrolledStudents = () => {
         params: {
           page: page,
           limit: limit,
+          search: "Enrolled",
         },
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      //   console.log(res);
+      //   console.log(res.data.data);
       //   console.log(res.data.currentPage);
       //   console.log(res.data.totalEnrollments);
       //   console.log(res.data.totalPages);
 
-      settotalEnrolledStudents(res.data.totalEnrollments || 0);
+      settotalEnrolledStudents(res.data.enrolledCount || 0);
       setContacts(res.data.data || []);
       setTotalPages(res.data.totalPages || 1);
     } catch (error) {
@@ -41,6 +43,34 @@ const EnrolledStudents = () => {
       setLoading(false);
     }
   }
+
+  const enrolledStudent = contacts.filter(
+    (student) => student.enrollmentStatus === "Enrolled"
+  );
+  console.log(enrolledStudent);
+
+  const handleDownloadCertificate = async (studentId) => {
+    console.log(studentId);
+    const certificateIdNumber = enrolledStudent.find(
+      (student) => student.id === studentId
+    )?.certificateId;
+    console.log(certificateIdNumber);
+    if (!certificateIdNumber) {
+      toast.error("Certificate ID not found for this student.");
+      return;
+    } else {
+      try {
+        window.open(
+          `https://api.fillipskillacademy.com/api/certificates/download/${certificateIdNumber}`,
+          "_blank",
+          "noopener,noreferrer"
+        );
+      } catch (error) {
+        console.error("Error downloading certificate:", error);
+        toast.error("Failed to download certificate. Please try again later.");
+      }
+    }
+  };
 
   useEffect(() => {
     fetchContacts();
@@ -83,6 +113,7 @@ const EnrolledStudents = () => {
               <th className="px-5 py-3 text-left">Name</th>
               <th className="px-5 py-3 text-left">Email</th>
               <th className="px-5 py-3 text-left">Phone</th>
+              <th className="px-5 py-3 text-left">Status</th>
               <th className="px-5 py-3 text-left"></th>
             </tr>
           </thead>
@@ -93,6 +124,7 @@ const EnrolledStudents = () => {
                 <td className="px-5 py-3 font-medium">{row.name}</td>
                 <td className="px-5 py-3">{row.email || "-"}</td>
                 <td className="px-5 py-3">{row.phone || "-"}</td>
+                <td className="px-5 py-3">{row.enrollmentStatus || "-"}</td>
                 <td className="px-5 py-3">
                   <Button
                     className="cursor-pointer"
