@@ -12,11 +12,14 @@ import {
 import { URL } from "@/services/const";
 import { set } from "react-hook-form";
 import { Button } from "@/components/button";
+import { toast } from "react-toastify";
 
 export default function EnquiryFormUI() {
   const [search, setSearch] = useState("");
   const [courseFilter, setCourseFilter] = useState("All");
   const [statusFilter, setStatusFilter] = useState("All");
+
+  const [enrolled, setEnrolled] = useState([]);
 
   const [debouncedSearch, setDebouncedSearch] = useState(search);
 
@@ -33,6 +36,55 @@ export default function EnquiryFormUI() {
   const [totalPages, settotalPages] = useState(0);
 
   // API integration with axios
+
+  const getEnrolledData = async () => {
+    const res = await axios.get(`${URL}newEnrollment`);
+    console.log("enrolled data", res.data.data);
+    setEnrolled(res.data.data);
+  };
+
+  useEffect(() => {
+    getEnrolledData();
+  }, []);
+
+  const handleEnroll = async (id) => {
+    console.log("Enroll clicked for id:", id);
+    const enquiryToEnroll = enrolled.find(
+      (enquiry) => enquiry.enquiryId === id
+    );
+    console.log(enquiryToEnroll);
+    console.log(enquiryToEnroll.id);
+
+    try {
+      if (!enquiryToEnroll) {
+        toast.error("User not eligible for enrollment.");
+        return;
+      }
+      if (enquiryToEnroll.enrollmentStatus === "Enrolled") {
+        toast.info("User is already enrolled.");
+        return;
+      }
+      const res = await axios.patch(
+        `${URL}newEnrollment/complete/${enquiryToEnroll.id}`,
+        {
+          enrollmentStatus: "Enrolled",
+        }
+      );
+      setEnrolled((prev) =>
+        prev.map((item) =>
+          item.enquiryId === enquiryToEnroll.enquiryId
+            ? { ...item, enrollmentStatus: "Enrolled" }
+            : item
+        )
+      );
+
+      toast.success("User enrolled successfully.");
+      console.log(res);
+    } catch (error) {
+      toast.error("Error enrolling user.");
+      console.log(error);
+    }
+  };
 
   async function user() {
     try {
@@ -137,9 +189,11 @@ export default function EnquiryFormUI() {
       setStatusDropdown(null);
       await user();
       console.log("Status Updated");
+      toast.success("Status updated successfully.");
       console.log(res.data.data);
     } catch (error) {
       console.log("getting error in updating status");
+      toast.error("Error updating status.");
       console.log(error);
     }
   };
@@ -163,8 +217,11 @@ export default function EnquiryFormUI() {
     }
   }, [loading]);
 
-  const handleEnroll = (id) => {
-    console.log("Enroll clicked for id:", id);
+  const isUserEnrolled = (enquiryId) => {
+    return enrolled.some(
+      (item) =>
+        item.enquiryId === enquiryId && item.enrollmentStatus === "Enrolled"
+    );
   };
 
   return (
@@ -332,11 +389,24 @@ export default function EnquiryFormUI() {
                       </div>
                     </td>
                     <td className="px-5 py-3">
-                      <Button
+                      {/* <Button
                         className="cursor-pointer"
                         onClick={() => handleEnroll(row.id)}
                       >
                         Enroll
+                      </Button> */}
+                      <Button
+                        onClick={() => handleEnroll(row.id)}
+                        disabled={isUserEnrolled(row.id)}
+                        className={`cursor-pointer px-4 py-2 rounded-lg font-medium transition
+                          ${
+                            isUserEnrolled(row.id)
+                              ? "bg-green-600 text-white cursor-not-allowed"
+                              : "bg-blue-600 hover:bg-blue-700 text-white"
+                          }
+                        `}
+                      >
+                        {isUserEnrolled(row.id) ? "Enrolled" : "Enroll"}
                       </Button>
                     </td>
                   </tr>
