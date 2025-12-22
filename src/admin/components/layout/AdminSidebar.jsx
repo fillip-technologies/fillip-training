@@ -13,6 +13,7 @@ import {
   Globe,
   LogOut,
   X,
+  UserCheck,
 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -118,6 +119,14 @@ export default function AdminSidebar({ isSidebarOpen, setIsSidebarOpen }) {
               </div>
             )}
           </div>
+
+          <NavLink
+            to="/admin/enrolled-students"
+            className={navItem}
+            onClick={() => setIsSidebarOpen(false)}
+          >
+            <UserCheck size={18} /> Enrolled Students
+          </NavLink>
 
           <NavLink
             to="/admin/instructors"

@@ -23,6 +23,7 @@ import AssignCertificate from "./pages/certificates/modals/AssignCertificate";
 import Attendance from "./pages/attendance/Attendance";
 import EnquiryFormUI from "./forms/enquiryform";
 import Contactform from "./forms/Contactform";
+import EnrolledStudents from "./components/EnrolledStudents";
 
 export default function AdminApp() {
   // FRONTEND AUTH MOCK
@@ -60,6 +61,7 @@ export default function AdminApp() {
         <Route path="students/aiml" element={<AiMlStudents />} />
 
         {/* Other Pages */}
+        <Route path="enrolled-students" element={<EnrolledStudents />} />
         <Route path="instructors" element={<Instructors />} />
         <Route path="courses" element={<Courses />} />
         <Route path="Batches" element={<Batches />} />
