@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { LoaderCircle } from "lucide-react";
+import { LoaderCircle, Trash2 } from "lucide-react";
 import { URL } from "@/services/const";
 import { Button } from "@/components/ui/button";
 import { toast } from "react-toastify";
@@ -38,7 +38,7 @@ const EnrolledStudents = () => {
       setContacts(res.data.data || []);
       setTotalPages(res.data.totalPages || 1);
     } catch (error) {
-      console.error("Error fetching contacts:", error);
+      // console.error("Error fetching contacts:", error);
     } finally {
       setLoading(false);
     }
@@ -47,14 +47,14 @@ const EnrolledStudents = () => {
   const enrolledStudent = contacts.filter(
     (student) => student.enrollmentStatus === "Enrolled"
   );
-  console.log(enrolledStudent);
+  // console.log(enrolledStudent);
 
   const handleDownloadCertificate = async (studentId) => {
-    console.log(studentId);
+    // console.log(studentId);
     const certificateIdNumber = enrolledStudent.find(
       (student) => student.id === studentId
     )?.certificateId;
-    console.log(certificateIdNumber);
+    // console.log(certificateIdNumber);
     if (!certificateIdNumber) {
       toast.error("Certificate ID not found for this student.");
       return;
@@ -66,9 +66,22 @@ const EnrolledStudents = () => {
           "noopener,noreferrer"
         );
       } catch (error) {
-        console.error("Error downloading certificate:", error);
+        // console.error("Error downloading certificate:", error);
         toast.error("Failed to download certificate. Please try again later.");
       }
+    }
+  };
+
+  const handleDeleteaEnrolledStudents = async (enrolledId) => {
+    // console.log(enrolledId);
+    try {
+      const res = await axios.delete(`${URL}newEnrollment/${enrolledId}`);
+      // console.log("Enrolled deleted", res);
+      toast.success("Enrolled student deleted successfully.");
+      fetchContacts();
+    } catch (e) {
+      // console.log(e);
+      toast.error("Error in deleting enrolled student.");
     }
   };
 
@@ -115,6 +128,7 @@ const EnrolledStudents = () => {
               <th className="px-5 py-3 text-left">Phone</th>
               <th className="px-5 py-3 text-left">Status</th>
               <th className="px-5 py-3 text-left"></th>
+              <th className="px-5 py-3 text-left"></th>
             </tr>
           </thead>
 
@@ -132,6 +146,16 @@ const EnrolledStudents = () => {
                   >
                     Download Certificate
                   </Button>
+                </td>
+                <td className="px-5 py-3">
+                  <div className="flex justify-center gap-3">
+                    <button
+                      className="text-blue-600 hover:text-blue-800"
+                      onClick={() => handleDeleteaEnrolledStudents(row.id)}
+                    >
+                      <Trash2 className="w-4 h-4 text-red-500 cursor-pointer" />
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}

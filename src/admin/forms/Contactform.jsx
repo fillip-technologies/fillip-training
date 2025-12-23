@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { LoaderCircle } from "lucide-react";
+import { LoaderCircle, Trash2 } from "lucide-react";
 import { URL } from "@/services/const";
+import { toast } from "react-toastify";
 
 export default function Contactform() {
   const [contacts, setContacts] = useState([]);
@@ -49,6 +50,19 @@ export default function Contactform() {
     }
   }, [loading]);
 
+  const handleDeleteEnquiry = async (contactId) => {
+    // console.log(contactId);
+    try {
+      const res = await axios.delete(`${URL}contact/${contactId}`);
+      // console.log("Contact deleted", res);
+      toast.success("Contact deleted successfully.");
+      fetchContacts();
+    } catch (e) {
+      // console.log(e);
+      toast.error("Error in deleting contact.");
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -84,6 +98,7 @@ export default function Contactform() {
               <th className="px-5 py-3 text-left">Email</th>
               <th className="px-5 py-3 text-left">Phone</th>
               <th className="px-5 py-3 text-left">Message</th>
+              <th className="px-5 py-3 text-left"></th>
             </tr>
           </thead>
 
@@ -94,6 +109,16 @@ export default function Contactform() {
                 <td className="px-5 py-3">{row.email || "-"}</td>
                 <td className="px-5 py-3">{row.phone || "-"}</td>
                 <td className="px-5 py-3">{row.message}</td>
+                <td className="px-5 py-3">
+                  <div className="flex justify-center gap-3">
+                    <button
+                      className="text-blue-600 hover:text-blue-800"
+                      onClick={() => handleDeleteEnquiry(row.id)}
+                    >
+                      <Trash2 className="w-4 h-4 text-red-500 cursor-pointer" />
+                    </button>
+                  </div>
+                </td>
               </tr>
             ))}
           </tbody>

@@ -8,6 +8,8 @@ import {
   Edit3,
   ChevronDown,
   LoaderCircle,
+  Delete,
+  Trash,
 } from "lucide-react";
 import { URL } from "@/services/const";
 import { set } from "react-hook-form";
@@ -40,7 +42,7 @@ export default function EnquiryFormUI() {
 
   const getEnrolledData = async () => {
     const res = await axios.get(`${URL}newEnrollment`);
-    console.log("enrolled data", res.data.data);
+    // console.log("enrolled data", res.data.data);
     setEnrolled(res.data.data);
   };
 
@@ -49,12 +51,12 @@ export default function EnquiryFormUI() {
   }, []);
 
   const handleEnroll = async (id) => {
-    console.log("Enroll clicked for id:", id);
+    // console.log("Enroll clicked for id:", id);
     const enquiryToEnroll = enrolled.find(
       (enquiry) => enquiry.enquiryId === id
     );
-    console.log(enquiryToEnroll);
-    console.log(enquiryToEnroll.id);
+    // console.log(enquiryToEnroll);
+    // console.log(enquiryToEnroll.id);
 
     try {
       if (!enquiryToEnroll) {
@@ -80,10 +82,10 @@ export default function EnquiryFormUI() {
       );
 
       toast.success("User enrolled successfully.");
-      console.log(res);
+      // console.log(res);
     } catch (error) {
       toast.error("Error enrolling user.");
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -98,22 +100,22 @@ export default function EnquiryFormUI() {
         },
       });
 
-      console.log(res.data);
-      console.log(res.data.data);
+      // console.log(res.data);
+      // console.log(res.data.data);
       settotalEnquiries(res.data.totalEnquiries);
       settotalPages(res.data.totalPages);
       setEnquiries(res.data.data);
-      console.log("userData");
+      // console.log("userData");
     } catch (error) {
-      console.log("getting error in user details");
-      console.log(error);
+      // console.log("getting error in user details");
+      // console.log(error);
     } finally {
       setLoading(false);
     }
   }
 
   const [enquiries, setEnquiries] = useState([]);
-  console.log("the enquiries", enquiries);
+  // console.log("the enquiries", enquiries);
 
   const filtered = enquiries.filter((e) => {
     // const q = search.toLowerCase();
@@ -129,16 +131,16 @@ export default function EnquiryFormUI() {
     return matchCourse && matchStatus;
   });
 
-  console.log(filtered);
-  console.log(filtered.map((r) => r.id));
+  // console.log(filtered);
+  // console.log(filtered.map((r) => r.id));
 
   const allCousres = enquiries.map((e) => e.course);
   const courseOptions = ["All", ...new Set(allCousres)];
-  console.log("the fi", courseOptions);
+  // console.log("the fi", courseOptions);
 
   const allStatuses = enquiries.map((e) => e.status);
   const statusOptions = ["All", ...new Set(allStatuses)];
-  console.log("the status options", statusOptions);
+  // console.log("the status options", statusOptions);
 
   //   const courseOptions = [
   //     "All",
@@ -166,17 +168,17 @@ export default function EnquiryFormUI() {
       });
       setRemarkModal(false);
       await user();
-      console.log("Remarks Updated");
-      console.log(res.data.data);
+      // console.log("Remarks Updated");
+      // console.log(res.data.data);
     } catch (error) {
-      console.log("getting error in updating remarks");
-      console.log(error);
+      // console.log("getting error in updating remarks");
+      // console.log(error);
     }
   };
 
   // --- UPDATE STATUS ---
   const updateStatus = async (id, newStatus) => {
-    console.log(id);
+    // console.log(id);
     setEnquiries((prev) =>
       prev.map((row) => (row.id === id ? { ...row, status: newStatus } : row))
     );
@@ -190,13 +192,13 @@ export default function EnquiryFormUI() {
 
       setStatusDropdown(null);
       await user();
-      console.log("Status Updated");
+      // console.log("Status Updated");
       toast.success("Status updated successfully.");
-      console.log(res.data.data);
+      // console.log(res.data.data);
     } catch (error) {
-      console.log("getting error in updating status");
+      // console.log("getting error in updating status");
       toast.error("Error updating status.");
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -209,7 +211,7 @@ export default function EnquiryFormUI() {
   }, [search]);
 
   useEffect(() => {
-    console.log("hii");
+    // console.log("hii");
     user();
   }, [page, debouncedSearch]);
 
@@ -224,6 +226,19 @@ export default function EnquiryFormUI() {
       (item) =>
         item.enquiryId === enquiryId && item.enrollmentStatus === "Enrolled"
     );
+  };
+
+  const handleDeleteEnquiry = async (enquiryId) => {
+    // console.log(enquiryId);
+    try {
+      const res = await axios.delete(`${URL}enquiry/${enquiryId}`);
+      // console.log("Enquiry deleted", res);
+      toast.success("Enquiry deleted successfully.");
+      user();
+    } catch (e) {
+      // console.log(e);
+      toast.error("Error in deleting enquiry.");
+    }
   };
 
   return (
@@ -301,6 +316,7 @@ export default function EnquiryFormUI() {
                   <th className="px-5 py-3 text-left">Status</th>
                   <th className="px-5 py-3 text-left">Remark</th>
                   <th className="px-5 py-3 text-center"></th>
+                  <th className="px-5 py-3 text-left"></th>
                   <th className="px-5 py-3 text-left"></th>
                 </tr>
               </thead>
@@ -410,6 +426,16 @@ export default function EnquiryFormUI() {
                       >
                         {isUserEnrolled(row.id) ? "Enrolled" : "Enroll"}
                       </Button>
+                    </td>
+                    <td className="px-5 py-3">
+                      <div className="flex justify-center gap-3">
+                        <button
+                          className="text-blue-600 hover:text-blue-800"
+                          onClick={() => handleDeleteEnquiry(row.id)}
+                        >
+                          <Trash2 className="w-4 h-4 text-red-500 cursor-pointer" />
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))}
