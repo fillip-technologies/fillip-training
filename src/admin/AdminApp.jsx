@@ -24,6 +24,7 @@ import Attendance from "./pages/attendance/Attendance";
 import EnquiryFormUI from "./forms/enquiryform";
 import Contactform from "./forms/Contactform";
 import EnrolledStudents from "./components/EnrolledStudents";
+import EnquiryStudents from "./components/EnquiryStudents";
 
 export default function AdminApp() {
   // FRONTEND AUTH MOCK
@@ -62,6 +63,7 @@ export default function AdminApp() {
 
         {/* Other Pages */}
         <Route path="enrolled-students" element={<EnrolledStudents />} />
+        <Route path="enquiry" element={<EnquiryStudents />} />
         <Route path="instructors" element={<Instructors />} />
         <Route path="courses" element={<Courses />} />
         <Route path="Batches" element={<Batches />} />

@@ -129,6 +129,14 @@ export default function AdminSidebar({ isSidebarOpen, setIsSidebarOpen }) {
           </NavLink>
 
           <NavLink
+            to="/admin/enquiry"
+            className={navItem}
+            onClick={() => setIsSidebarOpen(false)}
+          >
+            <UserCheck size={18} /> Enquiry
+          </NavLink>
+
+          <NavLink
             to="/admin/instructors"
             className={navItem}
             onClick={() => setIsSidebarOpen(false)}

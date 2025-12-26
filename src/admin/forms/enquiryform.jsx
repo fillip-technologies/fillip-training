@@ -252,7 +252,7 @@ export default function EnquiryFormUI() {
           NO ENQUIRIES FOUND
         </div>
       ) : (
-        <div className="p-6 space-y-6">
+        <div className="p-6 space-y-6 overflow-x-hidden">
           {/* PAGE HEADER */}
           <div>
             <h1 className="text-2xl font-bold text-gray-900">
@@ -303,7 +303,7 @@ export default function EnquiryFormUI() {
           </div>
 
           {/* MAIN TABLE */}
-          <div className="bg-white shadow-sm border rounded-xl overflow-hidden">
+          <div className="bg-white shadow-sm border rounded-xl">
             <table className="w-full text-sm">
               <thead className="bg-gray-50 border-b">
                 <tr className="text-gray-600 font-medium">
@@ -314,7 +314,8 @@ export default function EnquiryFormUI() {
                   <th className="px-5 py-3 text-left">College</th>
 
                   <th className="px-5 py-3 text-left">Status</th>
-                  <th className="px-5 py-3 text-left">Remark</th>
+                  <th className="px-5 py-3 text-left">Mode</th>
+                  {/* <th className="px-5 py-3 text-left">Remark</th> */}
                   <th className="px-5 py-3 text-center"></th>
                   <th className="px-5 py-3 text-left"></th>
                   <th className="px-5 py-3 text-left"></th>
@@ -378,8 +379,10 @@ export default function EnquiryFormUI() {
                       )}
                     </td>
 
+                    <td className="px-5 py-3">{row.mode}</td>
+
                     {/* REMARK COLUMN */}
-                    <td className="px-5 py-3 text-gray-600">
+                    {/* <td className="px-5 py-3 text-gray-600">
                       {row.remark ? (
                         <span className="italic text-gray-400">
                           {row.remark.length > 10
@@ -389,7 +392,7 @@ export default function EnquiryFormUI() {
                       ) : (
                         <span className="italic text-gray-400">No Remark</span>
                       )}
-                    </td>
+                    </td> */}
 
                     {/* ACTIONS */}
                     <td className="px-5 py-3">
