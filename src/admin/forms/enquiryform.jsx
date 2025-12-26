@@ -100,11 +100,13 @@ export default function EnquiryFormUI() {
         },
       });
 
-      // console.log(res.data);
+      console.log(res.data);
       // console.log(res.data.data);
       settotalEnquiries(res.data.totalEnquiries);
       settotalPages(res.data.totalPages);
-      setEnquiries(res.data.data);
+      // setEnquiries(res.data.data);
+      setEnquiries(Array.isArray(res.data.data) ? res.data.data : []);
+
       // console.log("userData");
     } catch (error) {
       // console.log("getting error in user details");
